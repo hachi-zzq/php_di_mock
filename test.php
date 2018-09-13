@@ -1,30 +1,25 @@
 <?php
 /**
  * Created by PhpStorm.
- * DateTime: 2018/9/13 22:15
+ * DateTime: 2018/9/13 22:15.
+ *
  * @author: hachi.zzq <hachi.zzq@gmail.com>
  */
-
 class User
 {
-
-    public function getIndex($field, $count,DataAdapter $dataAdapter)
+    public function getIndex($field, $count, DataAdapter $dataAdapter)
     {
         return $dataAdapter->get();
     }
 }
 
-
 class DataAdapter
 {
-
     public function get()
     {
         return 'user index';
     }
-
 }
-
 
 class App
 {
@@ -39,7 +34,6 @@ class App
         $newParams = [];
 
         foreach ($reflector->getParameters() as $key => $value) {
-
             $class = $value->getClass();
 
             if ($class) {
@@ -53,20 +47,10 @@ class App
                 }
                 array_push($newParams, $param);
             }
-
         }
-
 
         echo call_user_func_array([$instance, $method], $newParams);
     }
-
-
 }
 
-
-App::run(new User(), 'getIndex', [12,11]);
-
-
-
-
-
+App::run(new User(), 'getIndex', [12, 11]);
